@@ -6,3 +6,6 @@ Common git commands
   
 文件回退历史版本
 `git reset --hard history_id`
+
+安装一个 Debian 软件包，如你手动下载的文件
+`dpkg -i <package.deb>`
