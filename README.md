@@ -136,5 +136,12 @@
 文件回退历史版本  
 `git checkout <hash> <filename>`  
 `git reset --hard history_id`  
+
+### 缓存  
+
+查看stash的内容  
+git --help stash  
+git stash show stash@{1}  
+git stash show -p stash@{1}  
   
 _更加详细的git使用，[点这里。](https://git-scm.com/book/zh/v2)_
