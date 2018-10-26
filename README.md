@@ -11,6 +11,19 @@
 `git branch -d <分支名>`  
 
 ## 常用操作  
+
+### 在所有操作之前，要添加SSH key到gitlab  
+SSH是一种非对称加密的网络协议，用于计算机之间的加密登录。  
+
+```ssh-keygen -t rsa -C "你的email地址"```  
+
+将 `.ssh/id_rsa.pub` 内容复制到 gitlab  
+
+代码参数含义：  
+-t 指定密钥类型，默认是rsa，可以省略。  
+-C 设置注释文字，比如邮箱。  
+-f 指定密钥文件存储文件名。  
+
 ### 检查当前文件状态  
 ```git status```  
 要查看哪些文件处于什么状态，可以用 `git status` 命令
@@ -53,7 +66,7 @@
 
 ### 从远程仓库中拉取  
 ```git fetch <remote-name>```  
-此命令会将数据拉取到你的本地仓库,它并不会自动合并或修改你当前的工作。  
+此命令会将远程索引拉取到你的本地仓库,它并不会自动合并或修改你当前的工作。  
 
 ### 推送到远程仓库  
 ```git push```  
@@ -79,8 +92,10 @@
  rebase 意思为变基。`git rebase origin/<branch>`与远程分支合并。  
  `merge` 和 `rebase` 是合并不同分支代码的两种方式，各有优势。  
 
+ `git rebase -i <sha>`  
+ 它将罗列出此提交之后的所有提交，然后可以对个个提交做对应的操作.
  `git rebase -i HEAD~2`  
- 使用此命令来合并多个提交，`HEAD~2` 中的`2`表示将最近的两次提交合并成一个提交。  
+ 使用此命令来合并多个提交，`HEAD~2` 中的`2`表示显示将最近的两次，然后对爪鞋提交进行操作，包括将提交合并成一个提交。  
  使用后会出现类似如下界面：  
  >pick f7f3f6d changed my name a bit  
  >pick 310154e updated README formatting and added blame  
@@ -143,5 +158,10 @@
 git --help stash  
 git stash show stash@{1}  
 git stash show -p stash@{1}  
+  
+### gitignore  
+
+通常我们会从gitignore网站上获取一份模板，然后再根据自己的需要进行更改  
+[gitignore.io 地址](https://www.gitignore.io/)
   
 _更加详细的git使用，[点这里。](https://git-scm.com/book/zh/v2)_
